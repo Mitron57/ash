@@ -8,6 +8,7 @@ import EnvVariables.Variables;
 import FileSystem.FileSystem;
 import Interfaces.Command;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -80,6 +81,10 @@ public class Main {
             if (args[i].startsWith("-")) {
                 return switch (args[i]) {
                     case "-fs", "--filesystem" -> {
+                        if (!new File(args[i + 1]).exists()) {
+                            System.out.println("No such file " + args[i + 1]);
+                            yield 1;
+                        }
                         fs = new FileSystem(args[i + 1]);
                         yield 0;
                     }
@@ -99,7 +104,7 @@ public class Main {
     }
 
     private static void printHelp() {
-        System.out.println("Usage: java -jar mitron57.jar [options]");
+        System.out.println("Usage: java -jar ash.jar [options]");
         System.out.println("Options:");
         System.out.println("  -fs, --filesystem <path>   Specify the filesystem path");
         System.out.println("  -h, --help                 Show this help message");

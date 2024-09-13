@@ -2,7 +2,7 @@
 Эмулятор консоли, поддерживающий некоторые unix-like команды, такие как: cd, pwd, ls, cat, neofetch
 
 # Параметры запуска и команды
-Использование: java -jar mitron57.jar [options]
+Использование: java -jar ash.jar [options]
 - **-fs, --filesystem <path>** - Указать файловую систему (обязательно)
 - **-h, --help** - Показать сообщение помощи
 
@@ -16,11 +16,12 @@
 
 # Тесты
 ## ls
-
+![Тест ls](images/ls.png)
 ## cd
-
+![Тест cd](images/cd.png)
 ## pwd
-
+![Тест pwd](images/pwd.png)
 ## cat
-
+![Тест cat](images/cat.png)
 ## neofetch
+![Тест neofetch](images/neofetch.png)
