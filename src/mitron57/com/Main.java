@@ -26,11 +26,40 @@ public class Main {
             return;
         }
         Scanner scan = new Scanner(System.in);
+        String name = null, hostname = null;
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Enter your name: ");
+            name = scan.nextLine();
+            if (name.contains(" ")) {
+                System.out.println("Invalid name");
+                name = null;
+            } else {
+                break;
+            }
+        }
+        if (name == null) {
+            System.out.println("Invalid registration, goodbye!");
+            return;
+        }
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Enter your hostname: ");
+            hostname = scan.nextLine();
+            if (hostname.contains(" ")) {
+                System.out.println("Invalid hostname");
+                hostname = null;
+            } else {
+                break;
+            }
+        }
+        if (hostname == null) {
+            System.out.println("Invalid registration, goodbye!");
+            return;
+        }
         registerCommands();
         while (true) {
             String currentDir = fs.getCurrentDirectory().getName();
             currentDir = currentDir.replace(Variables.variables.get("HOME"), "~" ).replaceFirst("/$", "");
-            System.out.printf("user@localhost: " + currentDir + " $ ");
+            System.out.printf(name + "@" + hostname + ": " + currentDir + " $ ");
             String line = scan.nextLine().trim();
             if (line.equals("exit")) {
                 break;
